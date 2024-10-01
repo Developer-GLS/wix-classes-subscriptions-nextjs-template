@@ -7,11 +7,11 @@ import {
 import ScrollIntoView from '@app/components/ScrollIntoView/ScrollIntoView';
 import testIds from '@app/utils/test-ids';
 
-const TrainingOptionSelection = ({
+const GridCardLinkItem = ({
   text,
   className,
   bgImageSrc,
-  href,
+  href
 }: {
   text: string;
   bgImageSrc: string;
@@ -23,17 +23,13 @@ const TrainingOptionSelection = ({
     href={href}
   >
     <div className={`absolute-full bg-cover ${bgImageSrc}`}></div>
-    <div className="absolute-full h-full opacity-0 hover:opacity-50 bg-highlight"></div>
+    <div className="absolute-full h-full opacity-0 hover:opacity-50 bg-cyan-600"></div>
     <div className="flex align-middle justify-center flex-col gap-5 h-full w-full max-w-[490px]">
       <h3 className="z-10 uppercase text-3xl tracking-[.3em]">{text}</h3>
-      <div className="mx-auto">
-        <Image
-          className="hover:brightness-0 hover:invert rotate-270"
-          width={50}
-          height={50}
-          alt={`select ${text}`}
-          src="/common/arrow-circle.png"
-        />
+      <div className="mx-auto text-cyan-600 hidden md:block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className='absolute transition-all duration-300 hover:text-white hover:translate-x-2' viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+        </svg>
       </div>
     </div>
   </a>
@@ -47,9 +43,9 @@ const AchievementItem = ({
   tagline: string;
 }) => (
   <li>
-    <h4 className="title mb-5">{title}</h4>
-    <div className="mb-5 bg-black h-px w-28"></div>
-    <p className="text-xl sm:text-2xl">{tagline}</p>
+    <h4 className="text-2xl md:text-4xl mb-2 md:mb-5 text-center text-white">{title}</h4>
+    <div className="mb-2 md:mb-5 bg-white h-px"></div>
+    <p className="text-md md:text-2xl text-center text-white">{tagline}</p>
   </li>
 );
 
@@ -91,194 +87,169 @@ export default async function Home() {
   return (
     <div>
       <div
-        className="text-center min-h-screen bg-[url('/home/fitness-background-1.jpg')] parallax-background"
+        className="text-center min-h-screen bg-[url('/home/hero-car-1.jpg')] parallax-background bg-[center_top_1rem]"
         data-testid={testIds.HOME_PAGE.HEADER}
       >
         <section className="py-[355px]">
-          <h1 className="tracking-widest">Joey Dixon</h1>
-          <div className="pt-7">
-            <div className="tracking-[.4em] text-3xl uppercase">
-              Training with a World Champion
+          <h1 className="tracking-widest">Animals of our World</h1>
+          <div className="pt-4">
+            <div className="text-xl">
+              Siem Reap’s only physical sanctuary for rescued animals of all species
             </div>
           </div>
-          <div className="pt-14 flex gap-8 justify-center">
+          <div className="pt-10 flex gap-8 justify-center">
             <a
               className="btn-secondary text-lg px-7"
-              href="/classes-schedule"
+              href="/visit-us"
               data-testid={testIds.HOME_PAGE.BOOK_CLASS_CTA}
             >
-              Book Now
+              Visit us
             </a>
             <a
               className="btn-main text-lg px-7"
-              href="/plans"
+              href="/donations"
               data-testid={testIds.HOME_PAGE.BOOK_PLAN_CTA}
             >
-              Membership
+              Donations
             </a>
           </div>
         </section>
-        <section className="flex flex-col sm:flex-row pt-1 pb-7 bg-gray-c1 cursor-pointer">
-          <TrainingOptionSelection
-            href="/training"
-            text="Beginners"
+        <section className="flex flex-col sm:flex-row py-8 md:pb-0 md:pt-1 bg-gray-c1 cursor-pointer">
+          <GridCardLinkItem
+            href="/sanctuary"
+            text="Our Animals"
             className="sm:justify-end"
-            bgImageSrc="bg-[url('/home/beginners.jpg')]"
+            bgImageSrc="bg-[url('/home/animals.jpg')]"
           />
-          <TrainingOptionSelection
-            href="/training"
-            text="Professionals"
+          <GridCardLinkItem
+            href="/team"
+            text="Our Team"
             className="sm:justify-start"
-            bgImageSrc="bg-[url('/home/professionals.jpg')]"
+            bgImageSrc="bg-[url('/home/team.jpg')]"
           />
         </section>
       </div>
       <ScrollIntoView hashName="#about" offset="-90px" />
-      <div className="min-h-screen bg-[url('/home/fitness-background-2.jpg')] parallax-background">
+      <div className="min-h-screen bg-[url('/home/we.jpg')] parallax-background m-0 md:m-16 px-2 md:px-0">
         <div className="max-w-full-content mx-auto box-content pt-2">
-          <div className="max-w-[400px] pt-10 pb-2">
-            <h2 className="uppercase text-7xl leading-tight py-7">
-              Meet The Coach
-            </h2>
+          <h2 className="uppercase text-4xl md:text-6xl leading-tight py-7">
+            Welcome to Animals of Our World
+          </h2>
+          <h3 className='text-2xl md:text-4xl py-7'>
+            a compassionate and impactful UK-registered charity committed to ending and preventing animal suffering.
+          </h3>
+          <div className="max-w-[500px] md:pt-10 pb-2">
             <section className="font-open-sans-condensed text-base text-stone-300 tracking-wider">
               <p className="py-3">
-                {`Hi, I’m Joey Dixon and I’m a boxing coach with 15 years of boxing experience and 9 intercontinental cruiserweight titles. 
-                I’ve trained many successful boxers at national and international levels. I love teaching people how to box like a pro,
-                whether they are beginners or advanced fighters.
+                {`We are the only physical sanctuary in Siem Reap, which is predominantly a forever home for disabled rescued animals who can no longer live independetly. We are currently prioritizing the rescue and rehabilitation of emergency animal medical cases only.
                 `}
               </p>
               <p className="py-3">
-                {`To me, boxing is not only a sport, but also a way of life.
-                It teaches you discipline, resilience, confidence, and self-defense. It also keeps you fit, healthy, and mentally sharp.
-                That’s why I created this business to share my knowledge and skills with you.`}
+                {`We are a non-speciesist rescue and vegan organization that works tirelessly to make a difference in the lives of animals in need.`}
               </p>
               <p className="py-3">
-                {`I have a friendly and supportive approach that will make you feel comfortable and motivated.
-                I also have a wealth of experience and expertise that will make you learn faster and better.
-                No matter what your age, level, or background, I can help you become the best boxer you can be.`}
+                {`Our primary focus is on de-sexing and rehabilitating animals in distress. Through our community outreach program, we provide free medical treatment and animal care education to impoverished Cambodian families, ensuring that sick and injured animals receive the care they deserve.`}
               </p>
               <p className="py-3">
-                {`If you are interested in working with me or learning more about me, please feel free to contact me or browse through my website.
-                I look forward to hearing from you and helping you on your boxing journey.`}
+                {`By supporting our non-profit organization, you become an integral part of the change we strive to achieve. Your generous donations directly contribute to the operation of our essential rehabilitation base and animal sanctuary. Moreover, your support enables us to rescue and rehabilitate neglected, abandoned, and abused stray animals throughout Siem Reap and other regions of Cambodia whenever we can.`}
               </p>
-            </section>
-            <section className="mt-5">
-              <ul
-                aria-label="Social Bar"
-                className="flex gap-2 invert -ml-3 items-center"
-              >
-                <li>
-                  <a
-                    href="http://www.facebook.com/wix"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <Image
-                      width={43}
-                      height={43}
-                      alt="Facebook"
-                      src="https://static.wixstatic.com/media/0fdef751204647a3bbd7eaa2827ed4f9.png"
-                    />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.x.com/wix"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <Image
-                      width={28}
-                      height={28}
-                      src="https://static.wixstatic.com/media/2be684_ea277e5149dc4b86ab826475d4d64c41~mv2.png"
-                      alt="X"
-                    />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://instagram.com/wix/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <Image
-                      width={43}
-                      height={43}
-                      src="https://static.wixstatic.com/media/01c3aff52f2a4dffa526d7a9843d46ea.png"
-                      alt="Instagram"
-                    />
-                  </a>
-                </li>
-              </ul>
+              <p className="py-3">
+                {`But we cannot do this alone—we need you! Join us in our mission to create a brighter future for animals in Cambodia and beyond. Together, we can make a profound impact on the lives of these vulnerable creatures.`}
+              </p>
             </section>
           </div>
         </div>
-        <section className="bg-[url('/home/coacher-achievements-background.jpg')] bg-center bg-cover">
+        <section className="bg-[url('/home/numbers-bg.svg')] bg-center bg-cover">
           <div className="max-w-full-content px-4 mx-auto text-black">
-            <h2 className="title pt-24 pb-20 tracking-[.3em] text-center">
-              My Experience
+            <h2 className="title pt-12 md:pt-24 pb-20 text-3xl md:text-6xl text-center text-white">
+              Our numbers
             </h2>
-            <ul className="grid grid-cols-2 lg:grid-cols-4 gap-16 pb-20 px-2">
+            <ul className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-16 pb-20 px-2 mb-8 md:mb-0">
               <AchievementItem
-                title="15"
-                tagline="15 YEARS OF BOXING EXPERIENCE"
+                title="5"
+                tagline="5 Years of intense work"
               />
               <AchievementItem
-                title="3"
-                tagline="3 TIMES WBA INTERCONTINENTAL CRUISERWEIGHT"
+                title="150"
+                tagline="150 animals currently rescued"
               />
               <AchievementItem
-                title="4"
-                tagline="4 TIMES WBC INTERCONTINENTAL CRUISERWEIGHT"
+                title="40"
+                tagline="40 adoptions archieved this year"
               />
               <AchievementItem
-                title="2"
-                tagline="2 TIMES IBF INTERCONTINENTAL CRUISERWEIGHT"
+                title="8"
+                tagline="8 team members"
               />
             </ul>
           </div>
         </section>
-        <section className="bg-gray-c2">
-          <div className="max-w-full-content px-4 mx-auto py-20 flex flex-col gap-10 items-center">
-            <h3 className="text-3xl uppercase tracking-[.4em] pt-7">
-              Start Training Today
+        <section className="bg-gray-c2 rounded-md md:rounded-none">
+          <div className="max-w-full-content px-4 mx-auto py-10 md:py-20 flex flex-col gap-10 items-start md:items-center">
+            <h3 className="text-2xl md:text-4xl uppercase tracking-[.4em] pt-7 text-start">
+              Your help can save lives
             </h3>
             <a
               className="btn-secondary px-10 text-lg px-7"
-              href="/classes-schedule"
+              href="/donations"
             >
-              Book a Session
+              Donate now
             </a>
           </div>
         </section>
-        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 hidden">
           {galleryItems.map((item) => (
             <GalleryItem item={item} key={item.id} />
           ))}
         </section>
       </div>
-      <ScrollIntoView hashName="#studio" offset="-90px" />
-      <div className="text-center py-24 bg-[url('/home/fitness-background-3.jpg')] parallax-background">
-        <div className="mx-auto max-w-md px-2">
-          <h2 className="title tracking-widest">THE STUDIO</h2>
-          <div className="pt-7 font-open-sans-condensed text-lg text-stone-300">
-            {`We train in a modern and spacious facility, conveniently located in the heart of San Francisco.
-            We have the equipment, facilities and expertise to take on clients of all ages and experience levels. Come by and check us out!`}
+      <ScrollIntoView hashName="#our-world" offset="-90px" />
+      <div className="text-center py-24 bg-[url('/home/our-world-d.jpg')] parallax-background">
+        <div className="mx-auto max-w-4xl px-2">
+          <h2 className="title tracking-widest text-4xl md:text-6xl">Our World</h2>
+          <div className="pt-8 font-open-sans-condensed text-lg text-start text-stone-300 flex flex-col gap-y-4 mb-4">
+            <h3 className='font-bold text-2xl pb-2 pl-2 md:pl-0'>Our Story</h3>
+            <p>{'Our journey as an English couple exploring South East Asia began with the intention of enjoying a year or two of travel and relaxation. However, fate had other plans for us when we arrived in Bangkok and discovered the plight of stray animals. Our days and evenings quickly transformed into a mission of feeding and forming connections with these abandoned creatures.'}</p>
+            <p>{'Over the course of four months, we embarked on a mission to visit every rescue shelter in each destination we encountered. Armed with the basic knowledge we had gained along the way, we started providing medical care to the stray animals we came across. It was during our time in Cambodia that we discovered four orphaned kittens, which compelled us to stay until we could find them loving forever homes.'}</p>
+            <p>{'Within a few short weeks, the House Of Strays sanctuary came into existence. We made a life-altering decision to dedicate ourselves fully to the establishment of a rehabilitation center and shelter, with the goal of alleviating as much suffering as possible. '}</p>
+            <p><strong>{'Today, several years later, our mission remains unwavering, and our shelter continues to serve as a vital temporary haven for those undergoing rehabilitation, as well as a permanent home for animals with special needs, and a temporary home for animals who have not yet found adoptive families.'}</strong></p>
           </div>
-          <section className="text-center uppercase pt-24 text-stone-200">
-            <h4 className="text-3xl tracking-[.4em]">Address</h4>
-            <div className="pt-6">
-              <div className="text-2xl">500 Terry A Francois Blvd</div>
-              <div className="text-lg">San Francisco, CA 94158, USA</div>
-            </div>
-          </section>
-          <section className="text-center uppercase pt-20 text-stone-200">
-            <h4 className="text-3xl tracking-[.4em]">Hours</h4>
-            <div className="text-2xl pt-6">
-              <div>Monday - Friday</div>
-              <div>6:30AM - 7:00PM</div>
-            </div>
-          </section>
+          <div className="pt-8 font-open-sans-condensed text-lg text-start text-stone-300 flex flex-col gap-y-4 mb-4">
+            <h3 className='font-bold text-2xl pb-2 pl-2 md:pl-0'>Our Mission</h3>
+            <p>{'Animals Of Our World defines who we are and drives our commitment to our cause.'}</p>
+            <p>{'Through our community outreach program, we extend our reach to every corner of Cambodia. Distance is not a limitation for us. If an animal is suffering even ten hours away from our shelter, House Of Strays, we utilize our extensive network to locate the nearest rescuer or driver who can try to bring the animal to safety, to the best of our ability.'}</p>
+            <p>{'At Animals Of Our World, our mission is to tackle the root causes of animal suffering by implementing widespread vaccination and de-sexing programs to control and reduce the stray population in Cambodia. As our financial support increases, we aim to expand our community outreach efforts, enabling us to conduct de-sexing missions across the entire country. Our dedication extends beyond cats and dogs; we strive to assist every animal in need.'}</p>
+            <p>{'House Of Strays serves as the sanctuary and rehabilitation base for Animals Of Our World, providing a safe haven for over 100 rescued animals. Successful adoptions play a vital role in creating space for more animals and enabling us to continue our mission.'}</p>
+            <p>{'However, it is equally important to secure the future of our base, ensuring its existence as a forever home for animals who will live out their lives under our care. This includes those who may never be adopted or those with additional daily needs. While not all of our rescues are available for adoption, we have numerous cats and dogs eagerly awaiting the opportunity to find a loving home.'}</p>
+          </div>
+          <div className="pt-8 font-open-sans-condensed text-lg text-start text-stone-300 flex flex-col gap-y-4 mb-4">
+            <h3 className='font-bold text-2xl pb-2 pl-2 md:pl-0'>Our Features</h3>
+            <p>{'Animals Of Our World has been featured in several interviews, articles, and events which you’ll find linked below.'}</p>
+            <ul className='flex flex-col gap-y-2'>
+              <li>
+                <p><strong>{'Charity Commission for England and Wales'}</strong></p>
+                <a className='text-cyan-600' href="https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/5176267/accounts-and-annual-returns" target="_blank" rel="noopener noreferrer">ANIMALS OF OUR WORLD, Charity number 1197372</a>
+              </li>
+              <li>
+                <p><strong>{'The Romford Recorder (UK) – May 2022'}</strong></p>
+                <a className='text-cyan-600' href="https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/5176267/accounts-and-annual-returns" target="_blank" rel="noopener noreferrer">6,064 miles away and dedicated’: Pair swapped Romford for Cambodia to run animal sanctuary</a>
+              </li>
+            </ul>
+          </div>
+
+          <section className="bg-gray-c2 rounded-md md:rounded-none md:mt-16">
+          <div className="max-w-full-content px-4 mx-auto py-10 md:py-20 flex flex-col gap-10 items-start md:items-center">
+            <h3 className="text-2xl md:text-4xl uppercase tracking-[.4em] pt-7 text-start">
+            Experience our dedication up close
+            </h3>
+            <a
+              className="btn-secondary px-10 text-lg px-7"
+              href="/visit-us"
+            >
+              Visit us
+            </a>
+          </div>
+        </section>
         </div>
       </div>
     </div>

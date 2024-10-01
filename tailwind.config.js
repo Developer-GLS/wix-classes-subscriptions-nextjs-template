@@ -33,14 +33,11 @@ module.exports = {
         },
       },
       fontFamily: {
-        'open-sans-condensed': [
-          'Open Sans Condensed',
-          ...defaultTheme.fontFamily.sans,
-        ],
-        'din-neu': [
-          'DINNeuzeitGroteskLTW01-_812426',
-          ...defaultTheme.fontFamily.sans,
-        ],
+
+      'outfit': [
+        'Outfit',
+        ...defaultTheme.fontFamily.sans,
+      ] 
       },
       rotate: {
         270: '270deg',

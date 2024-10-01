@@ -27,9 +27,9 @@
     left: calc(50% - 2px);
   }
 
-  .btn-main, .btn-secondary {
+  .btn-main, .btn-secondary, .btn-third {
     @apply cursor-pointer;
-    @apply border-none;
+    @apply border-2;
     @apply text-sm;
     @apply font-medium;
     @apply focus:ring-2;
@@ -38,22 +38,38 @@
     @apply rounded-none;
     @apply px-5;
     @apply py-2;
-    @apply font-open-sans-condensed;
+    @apply font-outfit;
     @apply transition-colors;
+    @apply rounded-md;
+    @apply transition-all;
+    @apply duration-300;
   }
 
   .btn-secondary {
-    @apply text-highlight;
+    @apply text-white;
     @apply bg-gray-c1;
-    @apply hover:bg-highlight;
+    @apply hover:bg-cyan-600;
     @apply hover:text-gray-c1;
+    @apply border-white;
+    @apply hover:border-transparent;  
+  }
+
+  .btn-third {
+    @apply text-white;
+    @apply bg-gray-c1;
+    @apply hover:bg-cyan-600;
+    @apply hover:text-gray-c1;
+    @apply border-white;
+    @apply hover:border-gray-c1;  
   }
 
   .btn-main {
     @apply text-gray-c1;
-    @apply bg-highlight;
+    @apply bg-cyan-600;
     @apply hover:bg-gray-c2;
     @apply hover:text-white;
+    @apply border-transparent;
+    @apply hover:border-white
   }
 
   .btn-main[disabled], .btn-secondary[disabled] {
@@ -64,7 +80,6 @@
   }
 
   h1, .title {
-    @apply font-din-neu;
     @apply text-5xl;
     @apply md:text-7xl;
     @apply uppercase;
@@ -102,7 +117,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font: normal normal normal 18px/1.4em DINNeuzeitGroteskLTW01-_812426, sans-serif;
+  font: normal normal normal 18px/1.4em Prata, serif;
   @apply bg-gray-c1;
   @apply text-white;
   @apply antialiased;
